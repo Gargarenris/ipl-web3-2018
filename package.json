@@ -11,7 +11,7 @@
     "server": "nodemon src/server/bin/www",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
     "electron": "webpack-dev-server --mode development --config config/webpack-electron.config.js",
-    "electron-dev": "concurrently \"npm run server\" \"npm run electron\"",
+    "electron-dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run electron\"",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
