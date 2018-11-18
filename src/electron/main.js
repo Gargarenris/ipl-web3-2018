@@ -2,6 +2,7 @@ const {app, BrowserWindow} = require('electron');
 const path = require('path');
 
 let mainWindow;
+const MAC_PLATFORM = "darwin"; // apparament mac = darwin 
 
 function createWindow(){
     mainWindow = new BrowserWindow();
@@ -15,7 +16,7 @@ function createWindow(){
 app.on('ready', createWindow);
 
 app.on('window-all-closed', function(){
-    if(process.platform !== 'darwin'){
+    if(process.platform !== MAC_PLATFORM){
         app.quit();
     }
 });

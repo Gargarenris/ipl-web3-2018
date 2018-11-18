@@ -11,6 +11,7 @@ function buildConfig(env, argv) {
   return {
     name: 'base',
     context: projectRoot,
+    target : "electron-main", // trouvé sur internet
     entry: {
       application: './src/electron/main.js'
     },
