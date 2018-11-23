@@ -13,7 +13,7 @@ function buildConfig(env, argv) {
     context: projectRoot,
     target : "electron-main", // trouvé sur internet
     entry: {
-      application: './src/electron/main.js'
+      application: './src/entries/application.js'
     },
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.html'],
@@ -47,11 +47,6 @@ function buildConfig(env, argv) {
           loader: 'url-loader?limit=100000'
         }
       ]
-    },
-    devtool: 'inline-source-map',
-    devServer: {
-      hot: true,
-      port: 3000
     },
     plugins: [
       new CleanWebpackPlugin([outputDirectory]),

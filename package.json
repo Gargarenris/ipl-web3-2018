@@ -10,8 +10,8 @@
     "client": "webpack-dev-server --mode development --config config/webpack.config.js",
     "server": "nodemon src/server/bin/www",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
-    "electron": "webpack-dev-server --mode development --config config/webpack-electron.config.js",
-    "electron-dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run electron\"",
+    "electron-webbundle": "webpack --mode production --config config/webpack-electron.config.js",
+    "electron-builder": "cross-env \"npm run electron-webbundle\" && \"npm run \"",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
