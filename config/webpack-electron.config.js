@@ -3,27 +3,26 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
-const outputDirectory = 'dist';
+const outputDirectory = 'src/electron/dist';
 const projectRoot = path.resolve(__dirname, '..');
 
 function buildConfig(env, argv) {
-  const isDevelopment = (argv.mode === 'development');
+
   return {
     name: 'base',
     context: projectRoot,
-    target : "electron-main", // trouvé sur internet
+    target: "electron-main",
     entry: {
-      application: './src/entries/application.js'
+      application: './src/client/entries/application.js'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.json', '.html'],
-      modules: ['node_modules', "src/electron"]
+      extensions: ['.js', '.jsx', '.json'],
+      modules: ['node_modules', "src/client"]
     },
     output: {
       path: path.join(projectRoot, outputDirectory),
-      filename: isDevelopment ? '[name].js' : '[name]-[hash].js',
-      chunkFilename: isDevelopment ? '[name].js' : '[name]-[hash].chunk.js',
-      publicPath: isDevelopment ? '//localhost:3000/' : '/'
+      filename: '[name].js',
+      publicPath: '/'
     },
     module: {
       rules: [
