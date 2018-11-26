@@ -5,6 +5,7 @@ import { withAuthentication } from "react/contexts/authentication";
 import { withTheme } from "react/contexts/theme";
 
 const Navigation = ({ jwt, theme, toggleTheme }) => {
+
   return (
     <Navbar bg={theme} variant={theme} fixed="bottom">
       <Nav className="mr-auto">

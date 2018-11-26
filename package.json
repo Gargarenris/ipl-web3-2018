@@ -13,8 +13,9 @@
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
     "electron-webbundle": "webpack --mode production --config config/webpack-electron.config.js",
     "electron-builder": "cross-env \"npm run electron-webbundle && npm run package-win\"",
-    "electron-dev": "npm run electron-webbundle && electron ./src/electron/main.js",
+    "electron-dev" : "cross-env \"npm run electron-webbundle && electron ./src/electron/main.js \"",
     "heroku-postbuild": "npm run build",
+
     "package-mac": "electron-packager ./src/electron/ --overwrite --platform=darwin --arch=x64  --prune=true --out=release-builds",
     "package-win": "electron-packager ./src/electron/ Electron-Project --overwrite --asar=true --platform=win32 --arch=ia32  --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Project\"",
     "package-linux": "electron-packager ./src/electron/ Electron-Project --overwrite --asar=true --platform=linux --arch=x64  --prune=true --out=release-builds"

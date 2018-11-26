@@ -20,6 +20,8 @@ class ThemeProvider extends React.Component {
 
     this.setTheme = this.setTheme.bind(this);
     this.toggleTheme = this.toggleTheme.bind(this);
+
+   
   }
 
   setTheme(value) {
@@ -30,8 +32,8 @@ class ThemeProvider extends React.Component {
 
   toggleTheme() {
     const { theme } = this.state;
-
     switch(theme){
+      
       case "dark":
         this.setTheme("light");
         break;
@@ -40,6 +42,16 @@ class ThemeProvider extends React.Component {
       case "light":
         this.setTheme("dark");
     }
+  }
+
+  componentDidMount()
+  {
+    let caca = this.toggleTheme;
+    require('electron').ipcRenderer.on('ping', function(event, message)
+    {
+      console.log("message recu");
+      caca();
+    });
   }
 
   render() {

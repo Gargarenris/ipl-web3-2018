@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Tray, Menu} = require('electron');
+const {app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -12,13 +12,13 @@ const mainMenuTemplate = [ // a modifier avec le menu d'arthur
                 label : 'Quit',
                 accelerator : process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
                 click(){
-                    app.quit();
+                    //app.quit();
+                    mainWindow.webContents.send('ping', 'whooooh');
                 }
             }
         ]
     }
 ]
-
 
 function createWindow(){
 
