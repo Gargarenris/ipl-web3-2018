@@ -1,13 +1,12 @@
-const {app, BrowserWindow, Tray, Menu, shell } = require('electron');
+const {app, BrowserWindow, Tray, Menu, shell, nativeImage } = require('electron');
 const path = require('path');
 
-//process.env.NODE_ENV='dev'; //process.env.NODE_ENV='production'; //permet de modifier le menu 
-
+//process.env.NODE_ENV='production'; //permet de modifier le menu 
 
 let mainWindow;
 const MAC_PLATFORM = "darwin"; // apparament mac = darwin 
 
-const mainMenuTemplate = [ // a modifier avec le menu d'arthur
+const mainMenuTemplate = [
     {
         label : 'Options',
         submenu:[
@@ -68,7 +67,9 @@ app.setUserTasks([
 
 function createWindow(){
 
-    let tray = new Tray('icone.ico');
+    const image = nativeImage.createFromPath('./src/electron/icone.ico');
+    let tray = new Tray(image);
+
     mainWindow = new BrowserWindow();
     mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
