@@ -5,6 +5,7 @@ const path = require('path');
 
 let mainWindow;
 const MAC_PLATFORM = "darwin"; // apparament mac = darwin 
+var tray;
 
 const mainMenuTemplate = [
     {
@@ -67,8 +68,9 @@ app.setUserTasks([
 
 function createWindow(){
 
-    const image = nativeImage.createFromPath('./src/electron/icone.ico');
-    let tray = new Tray(image);
+    //const image = nativeImage.createFromPath('./src/electron/icone.ico');
+    const image = nativeImage.createFromPath(path.join(__dirname,'icone.ico'));
+    tray = new Tray(image);
 
     mainWindow = new BrowserWindow();
     mainWindow.loadFile(path.join(__dirname, 'index.html'));
