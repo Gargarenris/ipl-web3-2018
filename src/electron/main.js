@@ -15,7 +15,8 @@ const mainMenuTemplate = [
                 label : 'Theme',
                 accelerator : process.platform == 'darwin' ? 'Command+T' : 'Ctrl+T',
                 click(){
-                    mainWindow.webContents.send('ping', 'whooooh');
+                    //event: ping, au ping: change de theme.
+                    mainWindow.webContents.send('ping', 'message test');
                 }
             },
             {
