@@ -48,10 +48,11 @@ class ThemeProvider extends React.Component {
   {
     let changerTheme = this.toggleTheme;
     //Listener;
-    require('electron').ipcRenderer.on('ping', function(event, message)
+    /*require('electron').ipcRenderer.on('ping', function(event, message)
     {
       changerTheme();
     });
+    */
   }
 
   render() {

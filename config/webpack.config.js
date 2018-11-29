@@ -12,6 +12,7 @@ function buildConfig(env, argv) {
   return {
     name: 'base',
     context: projectRoot,
+    target: "web",
     entry: {
       application: './src/client/entries/application.js'
     },

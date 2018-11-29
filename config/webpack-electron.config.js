@@ -11,7 +11,7 @@ function buildConfig(env, argv) {
   return {
     name: 'base',
     context: projectRoot,
-    target: "electron-main",
+    target: "electron",
     entry: {
       application: './src/client/entries/application.js'
     },
